@@ -5,5 +5,4 @@ gunicorn
 pickle-mixin
 scikit-learn
 sklearn
-stats
-xgboost
+
