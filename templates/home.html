@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>BIKE</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+ <style>
+  h1 {text-align: center;
+    font-size: 75px;}
+
+body {
+  background-image: url('img2.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+p {
+  font-size: 19px;
+}
+table{
+  zoom:1.8;
+}
+button{
+  font-size: 50px;
+}
+#grad1 {
+  height: 200px;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to right, red , yellow);
+}
+</style>
+
+</head>
+
+<body id = "grad1">
+ <div class="login">
+	<h1>Hourly bike rental Analysis</h1>
+
+    	   <form action="{{ url_for('predict')}}"method="POST">
+      <table style="width:50%" class="center">
+        <tr>
+      <th> <p align="left"> Season </th><th>:</th>
+      <th>    <select id ="season" name = "season">
+              <option value = "1"> Springer </option>
+              <option value = "2"> Summer </option>
+              <option value = "3"> Fall </option>
+              <option value = "4"> Winter </option>
+           </select>
+         </p></th></tr>
+<tr>
+      <th>   <p align="left"> Holiday(Scheduled)</th><th>:</th>
+       <th>   <select id = "holiday" name = "holiday">
+              <option value = "1"> YES</option>
+              <option value = "0"> NO</option>
+    
+           </select>
+         </p></th>
+      </tr>  
+    <tr>
+      <th>   <p align="left">Workingday</th><th>:</th>
+       <th>   <select id = "workingday" name = "workingday">
+              <option value = "1"> YES</option>
+              <option value = "0"> NO</option>
+    
+           </select>
+         </p></th>
+      </tr>  
+
+         <tr>
+      <th>   <p align="left"> Weather</th><th>:</th>
+       <th>   <select  id = "weather" name = "weather">
+              <option value = "1"> Clear </option>
+              <option value = "2"> Cloud</option>
+              <option value = "3"> Snow</option>
+              <option value = "4"> Rainy </option>
+           </select>
+         </p></th>
+      </tr>
+<tr><th><p align="left"> Temperature :  </th><th>:</th><th> <input type="text" name="temp" placeholder="Temperature" required="required" /></p></th></tr>
+<tr><th> <p align="left">  Humidity :  </th><th>:</th><th> <input type="text" name="humidity" placeholder="Humidity" required="required" /></th></tr></p>
+ <tr> <th><p align="left"> Windspeed :  </th><th>:</th><th><input type="text" name="windspeed" placeholder="Wind Speed" required="required" /></th></tr></p>
+ <tr> <th><p align="left"> Casual </th><th>:</th><th> <input type="text" name="casual" placeholder="Casual" required="required" /></th></tr></p>
+ <tr> <th><p align="left"> Registered </th><th>:</th><th> <input type="text" name="registered" placeholder="Registered" required="required" /></th></p></tr>
+ <tr> <th><p align="left">Hour </th><th>:</th><th> <input type="text" name="hour" placeholder="Hour" required="required" /></th></p></tr>
+ <tr> <th><p align="left"> Month</th><th>:</th><th> <input type="text" name="month" placeholder="Month" required="required" /></th></p></tr>
+
+      <tr> <td align="center"> <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button></td><tr>
+    </form>
+</table>
+        
+   <br>
+   <br>
+    <h1>{{ pred }}</h1>
+
+
+ </div>
+
+
+</body>
+</html>
